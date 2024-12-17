@@ -6,8 +6,8 @@
     },
     "exported_at": "2024-12-17T14:38:05+01:00",
     "name": "Jenkins Agent",
-    "author": "sneaky@sneakyhub.com",
-    "description": "Creates a container that runs java.",
+    "author": "koen@kvdmr.nl",
+    "description": "Creates a container that runs the given agent.jar provided by your Jenkins environment.",
     "features": null,
     "docker_images": {
         "keithmarex\/ptero-jenkins:jdk21": "keithmarex\/ptero-jenkins:jdk21"
