@@ -1,0 +1,72 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2024-12-17T14:38:05+01:00",
+    "name": "Nexus 3 Repository",
+    "author": "koen@kvdmr.nl",
+    "description": "Creates a container that hosts the Nexus3 repository system.",
+    "features": null,
+    "docker_images": {
+        "keithmarex\/ptero-nexus:3": "keithmarex\/ptero-nexus:3"
+    },
+    "file_denylist": [],
+    "startup": "java -Dterminal.jline=false -Dterminal.ansi=true -jar {{JARFILE}} -url {{JENKINS_URL}} -secret {{JENKINS_SECRET}} -name {{AGENT_NAME}} -webSocket -workDir \"\/home\/container\"",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": \"change this text\"\r\n}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "# Update the package list\r\necho \"Updating package list...\"\r\napk update\r\n\r\n# Install wget and ca-certificates\r\necho \"Installing curl and ca-certificates...\"\r\napk add curl ca-certificates\r\n\r\n# CD into container and download jar\r\ncd \/mnt\/server\r\ncurl -sO ${JENKINS_URL}\/jnlpJars\/agent.jar",
+            "container": "alpine:3.4",
+            "entrypoint": "ash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Jar file",
+            "description": "",
+            "env_variable": "JARFILE",
+            "default_value": "agent.jar",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:20",
+            "field_type": "text"
+        },
+        {
+            "name": "Jenkins Panel Url",
+            "description": "",
+            "env_variable": "JENKINS_URL",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string",
+            "field_type": "text"
+        },
+        {
+            "name": "Jenkins Secret",
+            "description": "",
+            "env_variable": "JENKINS_SECRET",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string",
+            "field_type": "text"
+        },
+        {
+            "name": "Agent name",
+            "description": "",
+            "env_variable": "AGENT_NAME",
+            "default_value": "Pterodactyl",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:20",
+            "field_type": "text"
+        }
+    ]
+}
