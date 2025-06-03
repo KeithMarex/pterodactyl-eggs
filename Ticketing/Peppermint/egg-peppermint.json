@@ -1,0 +1,72 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+  "meta": {
+    "version": "PTDL_v2",
+    "update_url": null
+  },
+  "exported_at": "2024-12-17T14:38:05+01:00",
+  "name": "Peppemint.sh",
+  "author": "koen@kvdmr.nl",
+  "description": "Creates a container that runs the peppermint.sh",
+  "features": null,
+  "docker_images": {
+    "elestio\/peppermint:latest": "elestio\/peppermint:latest"
+  },
+  "file_denylist": [],
+  "startup": "bash peppermint.sh",
+  "config": {
+    "files": "{}",
+    "startup": "{\r\n    \"done\": \"change this text\"\r\n}",
+    "logs": "{}",
+    "stop": "^C"
+  },
+  "scripts": {
+    "installation": {
+      "script": "# Update the package list\r\necho \"Updating package list...\"\r\napk update\r\n\r\n# Install wget and ca-certificates\r\necho \"Installing curl and ca-certificates...\"\r\napk add curl ca-certificates",
+      "container": "alpine:3.4",
+      "entrypoint": "ash"
+    }
+  },
+  "variables": [
+    {
+      "name": "Database Username",
+      "description": "The username for the PostgreSQL database.",
+      "env_variable": "DB_USERNAME",
+      "default_value": "peppermint",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|max:50",
+      "field_type": "text"
+    },
+    {
+      "name": "Database Password",
+      "description": "The password for the PostgreSQL database.",
+      "env_variable": "DB_PASSWORD",
+      "default_value": "12345",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|max:50",
+      "field_type": "text"
+    },
+    {
+      "name": "Database Host",
+      "description": "The hostname of the PostgreSQL database container.",
+      "env_variable": "DB_HOST",
+      "default_value": "peppermint_postgres",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|max:50",
+      "field_type": "text"
+    },
+    {
+      "name": "Secret Key",
+      "description": "A secret key for application functionality.",
+      "env_variable": "SECRET",
+      "default_value": "peppermint4life",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": "required|string|max:100",
+      "field_type": "text"
+    }
+  ]
+}
