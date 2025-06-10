@@ -13,7 +13,7 @@
     "elestio\/peppermint:latest": "elestio\/peppermint:latest"
   },
   "file_denylist": [],
-  "startup": "bash peppermint.sh",
+  "startup": "#Powered by KeithMarex",
   "config": {
     "files": "{}",
     "startup": "{\r\n    \"done\": \"change this text\"\r\n}",

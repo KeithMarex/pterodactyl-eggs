@@ -1,0 +1,31 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2024-12-17T14:38:05+01:00",
+    "name": "Nexus 3 Repository - Standalone",
+    "author": "koen@kvdmr.nl",
+    "description": "Creates a container that hosts the Nexus3 repository system.",
+    "features": null,
+    "docker_images": {
+        "keithmarex\/ptero-nexus:3": "keithmarex\/ptero-nexus:3"
+    },
+    "file_denylist": [],
+    "startup": "#Powered by KeithMarex",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": \"change this text\"\r\n}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "",
+            "container": "alpine:3.4",
+            "entrypoint": "ash"
+        }
+    },
+    "variables": []
+}
